@@ -7,9 +7,6 @@ jobs:
   test:
     name: Run Java Tests
     runs-on: ubuntu-latest
-    permissions:
-      contents: read
-      packages: write
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -29,6 +26,9 @@ jobs:
     name: Build Docker Images
     needs: test
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
     strategy:
       matrix:
         service: [client, client-canary, server]
