@@ -52,6 +52,8 @@ canary_server:
   env:
     - name: SPRING_PROFILES_ACTIVE
       value: docker
+    - name: SERVER_PORT
+      value: "8081"
 
 canary_client:
   image:
