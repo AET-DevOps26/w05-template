@@ -12,7 +12,7 @@ This project includes:
 ## Prerequisites
 
 - Node.js (v22 or later)
-- Java JDK 21+
+- Java JDK 25+
 - Gradle
 - Docker and Docker Compose
 - Git
