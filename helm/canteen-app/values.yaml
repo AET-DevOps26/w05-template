@@ -50,20 +50,22 @@ canary_server:
     targetPort: 8081
   replicaCount: 1
   env:
-    - name: SPRING_PROFILES_ACTIVES
+    - name: SPRING_PROFILES_ACTIVE
       value: docker
+    - name: SERVER_PORT
+      value: "8081"
 
 canary_client:
   image:
-    repository: ghcr.io/aet-devops26/w05-template/client
-    tag: canary
+    repository: ghcr.io/aet-devops26/w05-template/client-canary
+    tag: latest
     pullPolicy: Always
     pullSecrets:
       - name: ghcr-secret
   service:
     type: ClusterIP
     port: 3001
-    targetPort: 3001
+    targetPort: 3000
   replicaCount: 1
 
 ingress:
@@ -84,7 +86,7 @@ ingress:
 
     # we will use cookie based routing
     byCookie: "X-Student-Group"
-    cookieValue: "mgmt_tech"
+    cookieValue: "always"
 
     # the names of your canary Services
     clientServiceName: "canary-client-service"

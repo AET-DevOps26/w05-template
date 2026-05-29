@@ -4,4 +4,4 @@ metadata:
   name: app-config
   namespace: "{{ .Values.tumid }}-devops26"
 data:
-  api_url: /api
+  api_url: "https://{{ .Values.tumid }}-devops-ss26.stud.k8s.aet.cit.tum.de"
